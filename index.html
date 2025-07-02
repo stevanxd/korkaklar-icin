@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>👑Bowiloff 25 Oldu Lan!</title>
+  <style>
+    body {
+      background: #121212;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    #startScreen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #startBtn {
+      padding: 20px 40px;
+      font-size: 1.8em;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      background-color: #ff4d4d;
+      color: white;
+      box-shadow: 0 0 10px #ff4d4d;
+      transition: background-color 0.3s ease;
+      margin-top: 20px;
+    }
+    #startBtn:hover {
+      background-color: #e04343;
+    }
+
+    #mainContent {
+      display: none;
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    h1 {
+      font-size: 3em;
+      margin-top: 50px;
+      animation: glow 2s infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff4d4d; }
+      to { text-shadow: 0 0 25px #ffa07a; }
+    }
+    .cake {
+      font-size: 4em;
+      animation: float 2s ease-in-out infinite;
+      margin-top: 30px;
+    }
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0px); }
+    }
+    .message-box {
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 30px;
+      margin: 40px auto;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+    .heart {
+      color: #ff4d4d;
+      font-size: 2em;
+      margin-top: 20px;
+    }
+    #curseBtn {
+      margin: 40px auto;
+      background-color: #ff4d4d;
+      border: none;
+      padding: 15px 40px;
+      font-size: 1.4em;
+      border-radius: 10px;
+      cursor: pointer;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 0 15px #ff4d4d;
+      transition: transform 0.1s ease;
+      display: block;
+      width: fit-content;
+    }
+    #curseBtn:active {
+      transform: scale(0.95);
+    }
+    #curseText {
+      margin-top: 30px;
+      font-size: 2.8em;
+      font-weight: 900;
+      color: #ff4444;
+      text-transform: uppercase;
+      animation: shake 0.5s ease;
+      display: none;
+      user-select: none;
+    }
+    @keyframes shake {
+      0% { transform: translate(1px, 1px) rotate(0deg); }
+      20% { transform: translate(-1px, -2px) rotate(-5deg); }
+      40% { transform: translate(-3px, 0px) rotate(5deg); }
+      60% { transform: translate(3px, 2px) rotate(0deg); }
+      80% { transform: translate(1px, -1px) rotate(5deg); }
+      100% { transform: translate(-1px, 2px) rotate(-5deg); }
+    }
+    audio {
+      display: none;
+    }
+    .footer {
+      margin-top: 60px;
+      font-size: 0.9em;
+      color: #aaa;
+      padding-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Başlangıç ekranı -->
+  <div id="startScreen">
+    <h1>Bowiloff 25 Oldu Lan! 🎉</h1>
+    <p>Müziği başlatmak için aşağıdaki butona bas.</p>
+    <button id="startBtn">Müziği Başlat ve Giriş Yap</button>
+  </div>
+
+  <!-- Asıl içerik -->
+  <div id="mainContent">
+    <h1>👑Bowiloff👑 25 Oldu Lan! 🎉</h1>
+    <div class="cake">🎂🎂🎂</div>
+
+  <div class="message-box">
+    <p>Lan Bowi... 25 olmuşsun amk. Koca eşek kadar adam olmuşsun hâlâ çocuk gibi fivem oynamalar... 2000 doğumlusun diye hava atma, alırım ayağımın altına 😂 </p>
+
+    <p>25 yıldır bi adam olamadın amk. İnsan bazen "bu çocuk nasıl hayatta kaldı?" diye sorguluyor. Ama işte hayat adil değil, sen bile varsın la 😞</p>
+
+    <p>kız olsaydın sana kesin basardım o derece soyliyim kardesim.</p>
+
+    <p>İyi ki doğdun lan! Ailen seni doğurduğuna pişman mı bilmiyorum ama biz tanıdığımıza memnunuz.</p>
+
+    <p>Bu yıl sana diliyorum: Daha çok Medusa dostumla zaman, Daha az salaklık, daha çok para. Ama seni bilen biliyor.. 😀</p>
+
+    <p class="heart">💖 Seni seviyoruz orospu çocuğu... İyi ki doğdun. 💖</p>
+  </div>
+
+  <button id="curseBtn">Tıkla Lan!</button>
+  <div id="curseText">SENİN O ALLAHINI SIKEYIM KARDESIM BENIM <3 </div>
+
+    <div class="footer">
+      Yapımcı: 👑Stevan 🤍
+    </div>
+  </div>
+
+  <audio id="bgMusic" src="music.mp3" loop></audio>
+
+  <script>
+    const startBtn = document.getElementById('startBtn');
+    const startScreen = document.getElementById('startScreen');
+    const mainContent = document.getElementById('mainContent');
+    const music = document.getElementById('bgMusic');
+    const curseBtn = document.getElementById('curseBtn');
+    const curseText = document.getElementById('curseText');
+
+    startBtn.addEventListener('click', () => {
+      music.play().then(() => {
+        // Başlangıç ekranını gizle, asıl içeriği göster
+        startScreen.style.display = 'none';
+        mainContent.style.display = 'block';
+      }).catch(() => {
+        alert('Müzik çalma izni verilmedi. Lütfen sayfayı yenileyip tekrar deneyin.');
+      });
+    });
+
+    curseBtn.addEventListener('click', () => {
+      curseText.style.display = 'block';
+      curseText.style.animation = 'shake 0.5s ease';
+      curseText.offsetWidth;  // animasyonu resetle
+      curseText.style.animation = 'shake 0.5s ease';
+
+      setTimeout(() => {
+        curseText.style.display = 'none';
+      }, 3000);
+    });
+  </script>
+
+</body>
+</html>
